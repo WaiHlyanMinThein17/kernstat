@@ -2,6 +2,7 @@
 
 import kernstat.mem as mem_module
 
+
 def test_parse_meminfo_returns_integers(tmp_path):
     original = mem_module.PROC_MEMINFO
     fake_meminfo = tmp_path / "meminfo"
@@ -23,13 +24,12 @@ def test_parse_meminfo_returns_integers(tmp_path):
         "MemAvailable": 2000000,
     }
 
+
 def test_parse_meminfo_strips_kb_unit(tmp_path):
     original = mem_module.PROC_MEMINFO
     fake_meminfo = tmp_path / "meminfo"
 
-    fake_meminfo.write_text(
-        "MemTotal:        8000000 kB\n"
-    )
+    fake_meminfo.write_text("MemTotal:        8000000 kB\n")
 
     mem_module.PROC_MEMINFO = str(fake_meminfo)
 
@@ -38,6 +38,7 @@ def test_parse_meminfo_strips_kb_unit(tmp_path):
 
     assert result["MemTotal"] == 8000000
     assert isinstance(result["MemTotal"], int)
+
 
 def test_mem_percent_correct_math(mocker):
     mocker.patch(
@@ -51,6 +52,7 @@ def test_mem_percent_correct_math(mocker):
     result = mem_module.mem_percent()
 
     assert result == 75.0
+
 
 def test_kb_to_gb_conversion():
     result = mem_module.kb_to_gb(1048576)

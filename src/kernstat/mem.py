@@ -2,6 +2,7 @@
 
 PROC_MEMINFO = "/proc/meminfo"
 
+
 def parse_meminfo() -> dict[str, int]:
     """Parse /proc/meminfo and return memory values."""
 
@@ -18,6 +19,7 @@ def parse_meminfo() -> dict[str, int]:
 
     return meminfo
 
+
 def mem_percent() -> float:
     """Return memory usage percentage."""
 
@@ -29,17 +31,19 @@ def mem_percent() -> float:
     percent = ((total - available) / total) * 100
 
     return round(percent, 2)
-    
+
+
 def kb_to_gb(kb: int) -> float:
     """Convert kilobytes to gigabytes using binary units."""
 
-    return round(kb / (1024 ** 2), 2)
+    return round(kb / (1024**2), 2)
+
 
 def mem_info() -> dict[str, float]:
     """Return memory information summary."""
 
     meminfo = parse_meminfo()
-    
+
     total = meminfo["MemTotal"]
     available = meminfo["MemAvailable"]
     used = total - available
