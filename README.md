@@ -3,6 +3,7 @@
 ![CI](https://github.com/WaiHlyanMinThein17/kernstat/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue)
 ![Python](https://img.shields.io/badge/python-3.14+-blue)
+![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)
 
 Lightweight Linux system statistics CLI built directly on `/proc` and `/sys`
 interfaces. `kernstat` reports CPU, memory, disk, and network metrics without
